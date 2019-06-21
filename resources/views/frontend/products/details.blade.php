@@ -2,21 +2,20 @@
 
 @section('main')
     
-    @include('frontend.layouts._hero')
 
     <div class="album py-5 bg-light">
         <div class="container">
     
             <div class="row">
                 <br>
-                <p class="text-center">dfdf</p>
+                <h2 class="text-center">{{ $product->title }}</h2>
                 <hr>
 
                 <div class="card">
                     <div class="row">
                         <aside class="col-sm-5 border-right">
                             <article class="gallery-wrap">
-                                <div><img src="" alt="" class="card-img-top"></div>
+                                <div><img src="{{ $product->getFirstMediaUrl('products') }}" alt="{{ $product->title }}" class="card-img-top"></div>
                             </article>
                         </aside>
 
@@ -25,14 +24,14 @@
                                 <h3 class="title mb-3"></h3>
                                 <p class="price-detail-wrap">
                                     <span class="price h3 text-warning">
-                                        <span class="currency"></span>
-                                        <span class="num"></span>
+                                        <span class="currency">BDT</span>
+                                        <span class="num">{{ $product->price }}</span>
                                     </span>
                                 </p>
                                 <dl class="item-property">
-                                    <dt></dt>
+                                    <dt>Description</dt>
                                     <dd>
-                                        <p></p>
+                                        <p>{{ $product->description }}</p>
                                     </dd>
                                     <hr>
                                     <a href="" class="btn btn-lg btn-outline-primary text-uppercase">

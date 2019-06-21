@@ -13,10 +13,10 @@ class ProductController extends Controller
         $data = [];
         $data['product'] = Product::where('slug',$slug)->where('active',1)->first();
 
-        if($data['products'] == null){
+        if($data['product'] == null){
             return redirect()->route('frontend.home');
         }
-
+        
         return view('frontend.products.details',$data);
     }
 }
