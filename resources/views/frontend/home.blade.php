@@ -18,7 +18,7 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
                                 </div>
-                                <small class="text-muted">{{ $product->price }}</small>
+                                <small class="text-muted">BDT {{ $product->price }}</small>
                                 </div>
                             </div>
                             </div>
