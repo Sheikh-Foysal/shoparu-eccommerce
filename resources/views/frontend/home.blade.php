@@ -22,14 +22,25 @@
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                                    <form action="{{ route('cart.add') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                                    </form>
                                 </div>
-                                <small class="text-muted">BDT {{ $product->price }}</small>
+                                <strong class="text-muted">
+                                    @if ($product->sale_price == null && $product->sale_price > 0)
+                                        <strike>BDT {{ $product->price }}</strike> BDT {{ $product->sale_price }}
+                                    @else
+                                        BDT {{ $product->price }}
+                                    @endif
+                                </strong>
                                 </div>
                             </div>
                             </div>
                         </div>
                     @endforeach
+                    <div class="col-12">{{ $products->links() }}</div>
             </div>
         </div>
     </div>
